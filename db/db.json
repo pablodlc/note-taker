@@ -1,14 +1,1 @@
-[
-    {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
-        "title": "testing",
-        "text": "testing below"
-    },
-    {
-        "title": "Hello",
-        "text": "hi there"
-    }
-]
+[{"title":"Hi there!","text":"these notes were preloaded for demo purposes","id":"bf2e3a86-07ad-4c27-945b-f04b20af19d0"},{"title":"Good example?","text":"I'm hoping you'll think so.","id":"9733d9f0-c46d-458a-aaac-a403f1bb03bd"},{"title":"Ready?","text":"Now I'll show you my application in action!","id":"7e64f7d5-3936-4635-b76b-7674475871e3"}]
