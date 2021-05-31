@@ -1,16 +1,14 @@
-{
-  "db": [
+[
     {
-      "title": "Test Title",
-      "text": "Test text"
+        "title": "Test Title",
+        "text": "Test text"
     },
     {
-      "title": "testing",
-      "text": "testing below"
+        "title": "testing",
+        "text": "testing below"
     },
     {
-      "title": "Hello",
-      "text": "hi there"
+        "title": "Hello",
+        "text": "hi there"
     }
-  ]
-}
+]
