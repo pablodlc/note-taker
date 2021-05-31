@@ -26,16 +26,17 @@ router.post('/notes', (req, res) => {
 });
 
 router.delete('/notes/:id', (req, res) => {
+    // let
     // Using a variable to say "id" easier
-    const id = req.params.id;
+    let id = req.params.id;
     // This is a new array that filters through db.json. If the id of the note doesn't match the deleted id, it's added to `notesToSave`. A matching id is ignored, so effectively deleted.
-    const notesToSave = notes.filter((note) => {
+    let notesToSave = notes.filter((note) => {
         return note.id !== id;
     })
     fs.writeFile('./db/db.json', JSON.stringify(notesToSave), (err, data) => {
         if (err) throw err
-        res.json(notesToSave)
     })
+    res.json(notes)
 })
 
 module.exports = router;
