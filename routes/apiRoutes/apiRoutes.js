@@ -15,13 +15,17 @@ router.get('/notes', (req, res) => {
     });
 });
 
-
+// Reads db.json
 fs.readFile("db/db.json", "utf8", (err, data) => {
     let notes = JSON.parse(data);
+    // Post a new note
     router.post("/notes", (req, res) => {
+        // giving it a variable
         let newNote = req.body;
+        // and an id using UUID.
         newNote.id = uuidv4();
         notes.push(newNote);
+        // Writes the notes, including the new one, to the page
         fs.writeFile('./db/db.json', JSON.stringify(notes), (err, data) => {
             if (err) throw err
         })
@@ -29,27 +33,14 @@ fs.readFile("db/db.json", "utf8", (err, data) => {
     });
 });
 
+// Delete route
 fs.readFile("db/db.json", "utf8", (err, data) => {
     let notes = JSON.parse(data);
     router.delete('/notes/:id', (req, res) => {
+        // declaring an array to push the saved notes into using `filterById()`
         const postDeleteArray = filterId(req.params.id, notes);
         res.send(postDeleteArray)
     })
 })
-
-// router.delete('/notes/:id', (req, res) => {
-//     // Using a variable to say "id" easier
-//     let id = req.params.id;
-//     // This is a new array that filters through db.json. If the id of the note doesn't match the deleted id, it's added to `notesToSave`. A matching id is ignored, so effectively deleted.
-//     let notesToSave = notes.filter((note) => {
-//         return note.id !== id;
-//     })
-//     let currentNotes = require('../../db/db');
-//     fs.writeFile('./db/db.json', JSON.stringify(notesToSave), (err, data) => {
-//         if (err) throw err
-//     })
-//     res.json(currentNotes)
-// })
-
 
 module.exports = router;
